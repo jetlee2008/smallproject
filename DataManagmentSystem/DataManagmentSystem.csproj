@@ -8,8 +8,9 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>DataManagmentSystem</RootNamespace>
     <AssemblyName>DataManagmentSystem</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LiteDB, Version=4.1.4.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\LiteDB.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -60,6 +65,12 @@
     <Compile Include="RecordsForm.Designer.cs">
       <DependentUpon>RecordsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowRecords.Designer.cs">
+      <DependentUpon>ShowRecords.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -74,10 +85,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RecordsForm.resx">
       <DependentUpon>RecordsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ShowRecords.resx">
+      <DependentUpon>ShowRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

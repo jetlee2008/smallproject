@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using LiteDB;
 
 namespace DataManagmentSystem
 {
@@ -33,20 +35,26 @@ namespace DataManagmentSystem
                 Type = tbType.Text,
                 TempalName = tbTempalName.Text,
                 Address = tbAddress.Text,
-                ChargeMan = new ChargeMan
-                {
-                    BirthDay = tbChargeManBirthDay.Text,
-                    ComeFrom = tbComeFrom.Text,
-                    HomeAddress = tbChargeManHomeAddress.Text,
-                    Name = tbChargeManName.Text,
-                    PersonalPhone = tbChargeManPhone.Text,
-                    SimpleLife = tbChargeManSampleLife.Text
-                },
+                ChargeManBirthDay = tbChargeManBirthDay.Text,
+                ChargeManComeFrom = tbComeFrom.Text,
+                ChargeManHomeAddress = tbChargeManHomeAddress.Text,
+                ChargeManName = tbChargeManName.Text,
+                ChargeManPersonalPhone = tbChargeManPhone.Text,
+                ChargeManSimpleLife = tbChargeManSampleLife.Text,
                 Comments = tbComments.Text,
                 PeopleInReligion = tbPeopleInReligion.Text,
                 PeopleCount = tbPeopleCount.Text,
                 Room = tbRoom.Text
             };
+
+            using (var db = new LiteDatabase(@"MyData.db"))
+            {
+                var col = db.GetCollection<Record>("records");
+                col.Insert(record);
+            }
+
+            MessageBox.Show("保存成功");
+            this.Close();
         }
     }
 }
