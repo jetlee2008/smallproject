@@ -19,7 +19,7 @@ namespace DataManagmentSystem
 
         private void Records_Load(object sender, EventArgs e)
         {
-            Height = 650;
+            Height = 750;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -44,7 +44,8 @@ namespace DataManagmentSystem
                 Comments = tbComments.Text,
                 PeopleInReligion = tbPeopleInReligion.Text,
                 PeopleCount = tbPeopleCount.Text,
-                Room = tbRoom.Text
+                Room = tbRoom.Text,
+                ChargeManPersonalID=tbChargeManID.Text
             };
 
             using (var db = new LiteDatabase(@"MyData.db"))

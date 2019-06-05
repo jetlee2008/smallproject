@@ -37,6 +37,9 @@ namespace DataManagmentSystem
         [DisplayName("负责人电话")]
         public string ChargeManPersonalPhone { get; set; }
 
+        [DisplayName("负责人身份证")]
+        public string ChargeManPersonalID { get; set; }
+
         [DisplayName("场所规模")]
         public string Room { get; set; }
 
